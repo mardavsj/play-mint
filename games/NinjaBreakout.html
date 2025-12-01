@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Breakout - Play Mint</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- AdSense script placeholder - uncomment when ready to add AdSense -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <div class="container-full">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        
+        <!-- AdSense placeholder - top ad -->
+        <div class="ad-container">
+            <div class="ad-placeholder">AdSense Top Ad Placeholder</div>
+        </div>
+        
+        <!-- Game page with vertical ads -->
+        <div class="game-page-with-ads">
+            <!-- Left vertical ad -->
+            <div class="vertical-ad-container">
+                <div class="vertical-ad-placeholder">AdSense Left Vertical Ad</div>
+            </div>
+            
+            <!-- Main content -->
+            <div class="main-content">
+                <div class="game-page">
+                    <h1 class="game-title">Ninja Breakout</h1>
+                    
+                    <!-- Game container - Ninja Breakout embed -->
+                    <div class="game-container" id="gameContainer">
+                        <!-- START: Game Embed Script - Replace this section with actual game embed -->
+                        <div>
+                            <script src="https://cdn.htmlgames.com/embed.js?game=NinjaBreakout&bgcolor=white"></script>
+                        </div>
+                        <!-- END: Game Embed Script -->
+                    </div>
+                    
+                    <!-- Fullscreen button below the game -->
+                    <button class="fullscreen-button" onclick="toggleFullscreen()">Play Fullscreen</button>
+                </div>
+            </div>
+            
+            <!-- Right vertical ad -->
+            <div class="vertical-ad-container">
+                <div class="vertical-ad-placeholder">AdSense Right Vertical Ad</div>
+            </div>
+        </div>
+        
+        <!-- AdSense placeholder - bottom ad -->
+        <div class="ad-container">
+            <div class="ad-placeholder">AdSense Bottom Ad Placeholder</div>
+        </div>
+    </div>
+    
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Fullscreen API implementation
+        function toggleFullscreen() {
+            var elem = document.getElementById("gameContainer");
+            
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+        
+        // Handle fullscreen change events
+        document.addEventListener('fullscreenchange', exitHandler);
+        document.addEventListener('webkitfullscreenchange', exitHandler);
+        document.addEventListener('mozfullscreenchange', exitHandler);
+        document.addEventListener('MSFullscreenChange', exitHandler);
+        
+        function exitHandler() {
+            if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                // Exited fullscreen
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# AdSense ads.txt file
+# Replace the placeholders below with your actual AdSense publisher ID
+
+# Authorized AdSense account
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Add additional ad networks as needed
+# network.com, account-id, relationship-type, certification-authority-id

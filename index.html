@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Mint - Free Online Games</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- AdSense script placeholder - uncomment when ready to add AdSense -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <h1>Play Mint</h1>
+                <p>Free Online Games - No Download Required</p>
+            </div>
+            <div class="header-right">
+                <form id="search-form" class="search-form">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search games..." autocomplete="off">
+                        <button type="submit">Search</button>
+                        <div id="search-dropdown" class="search-dropdown">
+                            <!-- Search results will be populated here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- AdSense placeholder - top ad -->
+        <div class="ad-container">
+            <div class="ad-placeholder">AdSense Top Ad Placeholder</div>
+        </div>
+        
+        <h2>Featured Games</h2>
+        <div class="game-grid">
+            <!-- Game cards will be generated here -->
+            <!-- Each card represents a game with a link to its page -->
+            
+            <!-- Sample game cards (35 cards total) -->
+            <div class="game-card" data-game-link="games/NinjaBreakout.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/ninjabreakout/800x450/ninjabreakout800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/ninjabreakout/500x300/ninjabreakout500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/ninjabreakout/300x200/ninjabreakout300200.webp">
+                    <img src="assets/images/games/ninjabreakout/200x200/ninjabreakout200.webp" alt="Ninja Breakout">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Ninja Breakout</h3>
+                    <p>Action & Adventure</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Sudoku.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/sudoku/800x450/sudokuclassic800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/sudoku/500x300/sudokuclassic500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/sudoku/300x200/sudokuclassic300200.webp">
+                    <img src="assets/images/games/sudoku/200x200/sudokuclassic200.webp" alt="Sudoku">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Sudoku Classic</h3>
+                    <p>Puzzle & Logic</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Tetris.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/tetris/800x450/tetrisfun800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/tetris/500x300/tetrisfun500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/tetris/300x200/tetrisfun300200.webp">
+                    <img src="assets/images/games/tetris/200x200/tetrisfun200.webp" alt="Tetris">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Tetris Fun</h3>
+                    <p>Classic & Arcade</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Mahjong.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjFjNDllIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1haGpvbmc8L3RleHQ+PC9zdmc+" alt="Mahjong">
+                <div class="game-card-content">
+                    <h3>Mahjong</h3>
+                    <p>Tile & Matching</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Solitaire.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjdjY2U4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNvbGl0YWlyZTwvdGV4dD48L3N2Zz4=" alt="Solitaire">
+                <div class="game-card-content">
+                    <h3>Solitaire</h3>
+                    <p>Card & Strategy</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Chess.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNzY0ZWE4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNoZXNzPC90ZXh0Pjwvc3ZnPg==" alt="Chess">
+                <div class="game-card-content">
+                    <h3>Chess</h3>
+                    <p>Strategy & Board</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/WordSearch.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGU0ZGM5Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPldvcmQgU2VhcmNoPC90ZXh0Pjwvc3ZnPg==" alt="Word Search">
+                <div class="game-card-content">
+                    <h3>Word Search</h3>
+                    <p>Word & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/BubbleShooter.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2YjNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJ1YmJsZSBTaG9vdGVyPC90ZXh0Pjwvc3ZnPg==" alt="Bubble Shooter">
+                <div class="game-card-content">
+                    <h3>Bubble Shooter</h3>
+                    <p>Match 3 & Arcade</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Minesweeper.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBhZGE5Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1pbmVzd2VlcGVyPC90ZXh0Pjwvc3ZnPg==" alt="Minesweeper">
+                <div class="game-card-content">
+                    <h3>Minesweeper</h3>
+                    <p>Logic & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Pacman.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZjODA4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlBhY21hbjwvdGV4dD48L3N2Zz4=" alt="Pacman">
+                <div class="game-card-content">
+                    <h3>Pacman</h3>
+                    <p>Classic & Arcade</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Checkers.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjYjcwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNoZWNrZXJzPC90ZXh0Pjwvc3ZnPg==" alt="Checkers">
+                <div class="game-card-content">
+                    <h3>Checkers</h3>
+                    <p>Board & Strategy</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/JigsawPuzzle.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBhZmYzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkppc2F3IFB1enpsZTwvdGV4dD48L3N2Zz4=" alt="Jigsaw Puzzle">
+                <div class="game-card-content">
+                    <h3>Jigsaw Puzzle</h3>
+                    <p>Puzzle & Art</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Bejeweled.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJlamV3ZWxlZDwvdGV4dD48L3N2Zz4=" alt="Bejeweled">
+                <div class="game-card-content">
+                    <h3>Bejeweled</h3>
+                    <p>Match 3 & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Freecell.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBhZGY4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkZyZWVjZWxsPC90ZXh0Pjwvc3ZnPg==" alt="Freecell">
+                <div class="game-card-content">
+                    <h3>Freecell</h3>
+                    <p>Card & Strategy</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/AngryBirds.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY1NzAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkFuZ3J5IEJpcmRzPC90ZXh0Pjwvc3ZnPg==" alt="Angry Birds">
+                <div class="game-card-content">
+                    <h3>Angry Birds</h3>
+                    <p>Physics & Action</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/CandyCrush.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZhYTAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNhbmR5IENydXNoPC90ZXh0Pjwvc3ZnPg==" alt="Candy Crush">
+                <div class="game-card-content">
+                    <h3>Candy Crush</h3>
+                    <p>Match 3 & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Mario.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMDAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1hcmlvPC90ZXh0Pjwvc3ZnPg==" alt="Mario">
+                <div class="game-card-content">
+                    <h3>Mario</h3>
+                    <p>Platform & Adventure</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Zuma.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA5ZjAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlp1bWE8L3RleHQ+PC9zdmc+" alt="Zuma">
+                <div class="game-card-content">
+                    <h3>Zuma</h3>
+                    <p>Match 3 & Action</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Scrabble.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA1ZmFmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNjcmFiYmxlPC90ZXh0Pjwvc3ZnPg==" alt="Scrabble">
+                <div class="game-card-content">
+                    <h3>Scrabble</h3>
+                    <p>Word & Board</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/SpiderSolitaire.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjYTkwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNwaWRlciBTb2xpdGFpcmU8L3RleHQ+PC9zdmc+" alt="Spider Solitaire">
+                <div class="game-card-content">
+                    <h3>Spider Solitaire</h3>
+                    <p>Card & Strategy</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/TowerDefense.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA4MDgwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlRvd2VyIERlZmVuc2U8L3RleHQ+PC9zdmc+" alt="Tower Defense">
+                <div class="game-card-content">
+                    <h3>Tower Defense</h3>
+                    <p>Strategy & Action</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Uno.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMGQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlVubyw8L3RleHQ+PC9zdmc+" alt="Uno">
+                <div class="game-card-content">
+                    <h3>Uno</h3>
+                    <p>Card & Family</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/DoodleJump.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOGJkZGI3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkRvb2RsZSBKdW1wPC90ZXh0Pjwvc3ZnPg==" alt="Doodle Jump">
+                <div class="game-card-content">
+                    <h3>Doodle Jump</h3>
+                    <p>Mobile & Arcade</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/CutTheRope.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiYzAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkN1dCBUaGUgUm9wZTwvdGV4dD48L3N2Zz4=" alt="Cut The Rope">
+                <div class="game-card-content">
+                    <h3>Cut The Rope</h3>
+                    <p>Physics & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/FruitNinja.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2NmIzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkZydWl0IE5pbmphPC90ZXh0Pjwvc3ZnPg==" alt="Fruit Ninja">
+                <div class="game-card-content">
+                    <h3>Fruit Ninja</h3>
+                    <p>Action & Arcade</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Racing.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NGJmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlJhY2luZzwvdGV4dD48L3N2Zz4=" alt="Racing">
+                <div class="game-card-content">
+                    <h3>Racing</h3>
+                    <p>Racing & Sports</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Shooting.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZjQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNob290aW5nPC90ZXh0Pjwvc3ZnPg==" alt="Shooting">
+                <div class="game-card-content">
+                    <h3>Shooting</h3>
+                    <p>Action & FPS</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/PuzzleQuest.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjODBkNGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlB1enpsZSBRdWVzdDwvdGV4dD48L3N2Zz4=" alt="Puzzle Quest">
+                <div class="game-card-content">
+                    <h3>Puzzle Quest</h3>
+                    <p>RPG & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/TriPeaks.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZGY0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlRyaSBQZWFrczwvdGV4dD48L3N2Zz4=" alt="Tri Peaks">
+                <div class="game-card-content">
+                    <h3>Tri Peaks</h3>
+                    <p>Card & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Yahtzee.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NGQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPllhaHR6ZWU8L3RleHQ+PC9zdmc+" alt="Yahtzee">
+                <div class="game-card-content">
+                    <h3>Yahtzee</h3>
+                    <p>Dice & Family</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/Battleship.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0iYmxhY2siIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJhdHRsZXNoaXA8L3RleHQ+PC9zdmc+" alt="Battleship">
+                <div class="game-card-content">
+                    <h3>Battleship</h3>
+                    <p>Strategy & Board</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/ConnectFour.html">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiY2JjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0iYmxhY2siIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNvbm5lY3QgRm91cjwvdGV4dD48L3N2Zz4=" alt="Connect Four">
+                <div class="game-card-content">
+                    <h3>Connect Four</h3>
+                    <p>Board & Strategy</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AdSense placeholder - bottom ad -->
+        <div class="ad-container">
+            <div class="ad-placeholder">AdSense Bottom Ad Placeholder</div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; <span id="current-year"></span> Play Mint. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
