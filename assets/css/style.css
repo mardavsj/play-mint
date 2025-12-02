@@ -10,10 +10,15 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
 }
 
 .container-full {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-privacy {
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -173,17 +178,185 @@ header {
 
 /* AdSense placeholder styling */
 .ad-container {
+    width: 100%;
     background-color: #ecf0f1;
     border: 1px dashed #bdc3c7;
-    padding: 15px;
+    padding: 15px 0;
     text-align: center;
     margin: 20px 0;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .ad-placeholder {
     color: #7f8c8d;
     font-style: italic;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Ad Card Styling */
+.ad-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ecf0f1;
+    border: 2px dashed #bdc3c7;
+    box-shadow: none;
+    cursor: default;
+    border-radius: 10px;
+    transition: none;
+    box-sizing: border-box;
+}
+
+.ad-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.ad-card .ad-slot {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+}
+
+/* Ensure ad cards don't have the game card hover effect */
+.game-card.ad-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.game-card.ad-card:hover .game-card-content {
+    display: none;
+}
+
+/* Fullscreen ad overlay styling */
+#fullscreen-ad-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Prevent background scrolling when modal is open */
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Ad content styling for transparency */
+.ad-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    min-width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#close-ad-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+#close-ad-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Loader styles */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    margin: 20px auto;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 50px;
+    height: 50px;
+    border: 4px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#fullscreen-ad-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#fullscreen-ad-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+
+
+.ad-placeholder-fullscreen {
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    min-width: 250px;
+    min-height: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
 }
 
 /* Footer styling */
@@ -209,14 +382,13 @@ header {
 }
 
 .footer-right a {
-    color: #3498db;
+    color: white;
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .footer-right a:hover {
-    color: #5dade2;
     text-decoration: underline;
 }
 
@@ -263,7 +435,7 @@ header {
     padding: 15px;
     opacity: 0;
     transition: opacity 0.3s ease;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.64);
     border-radius: 0 0 10px 10px;
     position: absolute;
     bottom: 0;
@@ -279,7 +451,7 @@ header {
 }
 
 .game-card h3 {
-    margin: 0 0 5px 0;
+    margin: 0 0 2px 0;
     font-size: 1.2rem;
     color: white;
 }
@@ -287,11 +459,11 @@ header {
 .game-card p {
     margin: 0;
     color: #ecf0f1;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
-/* Game page styling */
-.game-page {
+/* Learning page styles */
+.learning-page {
     background: white;
     border-radius: 10px;
     padding: 20px;
@@ -299,10 +471,60 @@ header {
     margin-bottom: 30px;
 }
 
+.learning-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 2.5rem;
+}
+
+.learning-article {
+    line-height: 1.6;
+    color: #333;
+}
+
+.learning-article h2 {
+    color: #2c3e50;
+    margin-top: 30px;
+}
+
+.learning-article h3 {
+    color: #3498db;
+    margin-top: 25px;
+}
+
+.learning-article p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.learning-article ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.learning-article li {
+    margin-bottom: 8px;
+}
+
+.article-image {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.article-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 /* Vertical ad container styling */
 .vertical-ad-container {
     width: 160px;
     height: 600px;
+    min-width: 120px;
+    min-height: 240px;
     background-color: #ecf0f1;
     border: 1px dashed #bdc3c7;
     border-radius: 5px;
@@ -310,12 +532,16 @@ header {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    box-sizing: border-box;
 }
 
 .vertical-ad-placeholder {
     color: #7f8c8d;
     font-style: italic;
     text-align: center;
+    padding: 10px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Game page with vertical ads layout */
@@ -357,6 +583,7 @@ header {
     transition: background-color 0.3s ease;
     cursor: pointer;
     width: fit-content;
+    border:none;
 }
 
 .fullscreen-button:hover {
@@ -376,7 +603,7 @@ header {
 .game-container {
     position: relative;
     width: 800px;
-    height: 450px;
+    height: 550px;
     margin: 20px auto;
     display: flex;
     align-items: center;
@@ -394,6 +621,12 @@ header {
 }
 
 /* Responsive design */
+@media (min-width: 768px) {
+    .escape-mode-text {
+        display: inline !important;
+    }
+}
+
 @media (min-width: 1201px) {
     .game-grid {
         grid-template-columns: repeat(4, 300px);
@@ -421,6 +654,7 @@ header {
 @media (max-width: 768px) {
     .container {
         padding: 10px;
+        max-width: 100%;
     }
     
     header h1 {
@@ -472,9 +706,21 @@ header {
     }
     
     .game-grid {
-        grid-template-columns: repeat(auto-fill, 200px);
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         justify-content: center;
         gap: 8px;
+    }
+    
+    .game-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
+    }
+    
+    .ad-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
     }
     
     .game-container {
@@ -484,8 +730,12 @@ header {
         margin: 20px auto;
     }
     
-    /* Hide vertical ads on smaller screens */
+    /* Adjust vertical ads for smaller screens */
     .vertical-ad-container {
+        width: 120px;
+        height: 500px;
+        min-width: 100px;
+        min-height: 200px;
         display: none;
     }
     
@@ -497,7 +747,7 @@ header {
 
 @media (max-width: 480px) {
     .game-grid {
-        grid-template-columns: 200px;
+        grid-template-columns: 1fr;
         justify-content: center;
         gap: 8px;
     }

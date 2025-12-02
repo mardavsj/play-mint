@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Mint - Free Online Games</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .filter-buttons {
+            margin: 15px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .filter-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #495057;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+        
+        .filter-btn:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
+        }
+        
+        .filter-btn.active {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+    </style>
     <!-- AdSense script placeholder - uncomment when ready to add AdSense -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -15,11 +46,24 @@
                 <h1>Play Mint</h1>
                 <p>Free Online Games - No Download Required</p>
             </div>
-            <div class="header-right">
+            <div class="header-right" style="display: flex; flex-direction: column; align-items: flex-end;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <button id="escape-mode-btn" style="background-color: #2c3e50; color: white; border: none; border-radius: 20px; padding: 5px 12px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <span style="font-size: 12px; color: white; border: 1px solid white; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center;">i</span>
+                        <span>Escape Mode</span>
+                    </button>
+                    <div id="total-games-count" style="background-color: #3498db; color: white; display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Total Games: 32</div>
+                </div>
+                <!-- Escape mode modal -->
+                <div id="escape-mode-modal" style="display: none; position: absolute; top: 60px; right: 300px; background: white; border: 1px solid #ccc; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; width: 300px; border-radius: 8px;">
+                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #2c3e50;">Double-tap Space to hide the game instantly.</p>
+                    <p style="margin: 0 0 10px 0; font-weight: bold; color: #2c3e50;">Double-tap Space again to get back to the game.</p>
+                    <p style="margin: 0; font-style: italic; color: #7f8c8d;">Stay ahead with instant privacy.</p>
+                </div>
                 <form id="search-form" class="search-form">
                     <div class="search-container">
-                        <input type="text" id="search-input" placeholder="Search games..." autocomplete="off">
-                        <button type="submit">Search</button>
+                        <input type="text" id="search-input" placeholder="Search games..." autocomplete="off" style="padding-top: 0; padding-bottom: 0; display: flex; align-items: center;">
+                        <button type="submit" style="display: flex; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></button>
                         <div id="search-dropdown" class="search-dropdown">
                             <!-- Search results will be populated here -->
                         </div>
@@ -28,14 +72,40 @@
             </div>
         </div>
     </header>
-    
     <div class="container">
         <!-- AdSense placeholder - top ad -->
         <div class="ad-container">
             <div class="ad-placeholder">AdSense Top Ad Placeholder</div>
         </div>
         
-        <h2>Featured Games</h2>
+        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div class="filter-buttons" style="margin: 0; width: 100%; justify-content: center;">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Action & Adventure">Action & Adventure</button>
+                <button class="filter-btn" data-filter="Puzzle & Logic">Puzzle</button>
+                <button class="filter-btn" data-filter="Classic & Arcade">Arcade</button>
+                <button class="filter-btn" data-filter="Card & Strategy">Card</button>
+                <button class="filter-btn" data-filter="Strategy & Board">Board</button>
+                <button class="filter-btn" data-filter="Match 3">Match 3</button>
+                <button class="filter-btn" data-filter="Tile & Puzzle">Tile</button>
+                <button class="filter-btn" data-filter="Word & Puzzle">Word</button>
+                <button class="filter-btn" data-filter="Physics & Action">Physics</button>
+                <button class="filter-btn" data-filter="Platform & Adventure">Platform</button>
+                <button class="filter-btn" data-filter="Puzzle & Art">Art</button>
+                <button class="filter-btn" data-filter="Match 3 & Action">Action Match</button>
+                <button class="filter-btn" data-filter="Word & Board">Word Board</button>
+                <button class="filter-btn" data-filter="Strategy & Action">Strategy Action</button>
+                <button class="filter-btn" data-filter="Card & Family">Family</button>
+                <button class="filter-btn" data-filter="Mobile & Arcade">Mobile</button>
+                <button class="filter-btn" data-filter="Physics & Puzzle">Physics Puzzle</button>
+                <button class="filter-btn" data-filter="Racing & Sports">Racing</button>
+                <button class="filter-btn" data-filter="Action & FPS">FPS</button>
+                <button class="filter-btn" data-filter="RPG & Puzzle">RPG</button>
+                <button class="filter-btn" data-filter="Dice & Family">Dice</button>
+                <button class="filter-btn" data-filter="Action & Arcade">Action Arcade</button>
+                <button class="filter-btn" data-filter="Card & Puzzle">Card Puzzle</button>
+            </div>
+        </div>
         <div class="game-grid">
             <!-- Game cards will be generated here -->
             <!-- Each card represents a game with a link to its page -->
@@ -80,11 +150,16 @@
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/Mahjong.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjFjNDllIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1haGpvbmc8L3RleHQ+PC9zdmc+" alt="Mahjong">
+            <div class="game-card" data-game-link="games/MahjongMerge.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/mahjong-merge/800x450/mahjongmerge800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/mahjong-merge/500x300/mahjongmerge500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/mahjong-merge/300x200/mahjongmerge300200.webp">
+                    <img src="assets/images/games/mahjong-merge/200x200/mahjongmerge200.webp" alt="Mahjong Merge">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Mahjong</h3>
-                    <p>Tile & Matching</p>
+                    <h3>Mahjong Merge</h3>
+                    <p>Tile & Puzzle</p>
                 </div>
             </div>
             
@@ -97,31 +172,56 @@
             </div>
             
             <div class="game-card" data-game-link="games/Chess.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNzY0ZWE4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNoZXNzPC90ZXh0Pjwvc3ZnPg==" alt="Chess">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="assets/images/games/chess/300x200/chess300200.webp">
+                    <img src="assets/images/games/chess/200x200/chess200200.webp" alt="Chess">
+                </picture>
                 <div class="game-card-content">
                     <h3>Chess</h3>
                     <p>Strategy & Board</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/WordSearch.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGU0ZGM5Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPldvcmQgU2VhcmNoPC90ZXh0Pjwvc3ZnPg==" alt="Word Search">
+            <div class="game-card" data-game-link="games/ClassicWordSearch.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/classic-word-search/800x450/classic-word-search800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/classic-word-search/500x300/classic-word-search500.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/classic-word-search/300x200/classic-word-search-300.webp">
+                    <img src="assets/images/games/classic-word-search/200x200/classic-word-search-200.webp" alt="Classic Word Search">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Word Search</h3>
+                    <h3>Classic Word Search</h3>
                     <p>Word & Puzzle</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/BubbleShooter.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2YjNiIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJ1YmJsZSBTaG9vdGVyPC90ZXh0Pjwvc3ZnPg==" alt="Bubble Shooter">
+            <div class="game-card" data-game-link="games/BubbleBuster.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/bubble-buster/800x450/bubblebuster800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/bubble-buster/500x300/bubblebuster500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/bubble-buster/300x200/bubblebuster300200.webp">
+                    <img src="assets/images/games/bubble-buster/200x200/bubblebuster200.webp" alt="Bubble Buster">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Bubble Shooter</h3>
-                    <p>Match 3 & Arcade</p>
+                    <h3>Bubble Buster</h3>
+                    <p>Match 3 & Puzzle</p>
+                </div>
+            </div>
+            
+            <!-- Ad Card - Before Minesweeper -->
+            <div class="game-card ad-card">
+                <div class="ad-slot">
+                    <!-- AdSense ad will load here -->
                 </div>
             </div>
             
             <div class="game-card" data-game-link="games/Minesweeper.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBhZGE5Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1pbmVzd2VlcGVyPC90ZXh0Pjwvc3ZnPg==" alt="Minesweeper">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/minesweeper/800x450/minesweeper800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/minesweeper/500x300/minesweeper500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/minesweeper/300x200/minesweeper300200.webp">
+                    <img src="assets/images/games/minesweeper/200x200/minesweeper200.webp" alt="Minesweeper">
+                </picture>
                 <div class="game-card-content">
                     <h3>Minesweeper</h3>
                     <p>Logic & Puzzle</p>
@@ -192,6 +292,13 @@
                 </div>
             </div>
             
+            <!-- Ad Card - After Mario -->
+            <div class="game-card ad-card">
+                <div class="ad-slot">
+                    <!-- AdSense ad will load here -->
+                </div>
+            </div>
+            
             <div class="game-card" data-game-link="games/Zuma.html">
                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA5ZjAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlp1bWE8L3RleHQ+PC9zdmc+" alt="Zuma">
                 <div class="game-card-content">
@@ -237,6 +344,13 @@
                 <div class="game-card-content">
                     <h3>Doodle Jump</h3>
                     <p>Mobile & Arcade</p>
+                </div>
+            </div>
+            
+            <!-- Ad Card - After Doodle Jump -->
+            <div class="game-card ad-card">
+                <div class="ad-slot">
+                    <!-- AdSense ad will load here -->
                 </div>
             </div>
             
@@ -297,7 +411,7 @@
             </div>
             
             <div class="game-card" data-game-link="games/Battleship.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0iYmxhY2siIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJhdHRsZXNoaXA8L3RleHQ+PC9zdmc+" alt="Battleship">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJhdHRsZXNoaXA8L3RleHQ+PC9zdmc+" alt="Battleship">
                 <div class="game-card-content">
                     <h3>Battleship</h3>
                     <p>Strategy & Board</p>
@@ -305,10 +419,17 @@
             </div>
             
             <div class="game-card" data-game-link="games/ConnectFour.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiY2JjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0iYmxhY2siIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNvbm5lY3QgRm91cjwvdGV4dD48L3N2Zz4=" alt="Connect Four">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiY2JjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNvbm5lY3QgRm91cjwvdGV4dD48L3N2Zz4=" alt="Connect Four">
                 <div class="game-card-content">
                     <h3>Connect Four</h3>
                     <p>Board & Strategy</p>
+                </div>
+            </div>
+            
+            <!-- Ad Card - After Connect Four -->
+            <div class="game-card ad-card">
+                <div class="ad-slot">
+                    <!-- AdSense ad will load here -->
                 </div>
             </div>
         </div>
@@ -332,5 +453,90 @@
     </footer>
     
     <script src="assets/js/main.js"></script>
+    <script>
+        // Update total games count
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameCards = document.querySelectorAll('.game-card:not(.ad-card)');
+            const totalGamesCount = gameCards.length;
+            const countElement = document.getElementById('total-games-count');
+            if (countElement) {
+                countElement.textContent = 'Total Games: ' + totalGamesCount;
+            }
+            
+            // Add event listener for escape mode button
+            const escapeModeBtn = document.getElementById('escape-mode-btn');
+            const escapeModeModal = document.getElementById('escape-mode-modal');
+            if (escapeModeBtn && escapeModeModal) {
+                escapeModeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle modal visibility
+                    if (escapeModeModal.style.display === 'none' || escapeModeModal.style.display === '') {
+                        escapeModeModal.style.display = 'block';
+                    } else {
+                        escapeModeModal.style.display = 'none';
+                    }
+                });
+                
+                // Close modal when clicking elsewhere
+                document.addEventListener('click', function() {
+                    escapeModeModal.style.display = 'none';
+                });
+                
+                // Prevent modal from closing when clicking inside it
+                escapeModeModal.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+        });
+        
+        // Allow user to go to learning page by double-clicking spacebar
+        let lastSpacePress = 0;
+        document.addEventListener('keydown', function(event) {
+            // Check if spacebar was pressed
+            if (event.code === 'Space') {
+                event.preventDefault();
+                event.stopPropagation(); // Prevent event from bubbling to other listeners
+                const now = Date.now();
+                // Check if this is a double-click (within 300ms)
+                if (now - lastSpacePress < 300) {
+                    window.location.href = 'secret-learning.html';
+                }
+                lastSpacePress = now;
+            }
+        });
+        
+        // Game filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const gameCards = document.querySelectorAll('.game-card:not(.ad-card)');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    gameCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const category = card.querySelector('p').textContent;
+                            // Normalize the category and filter for comparison by sorting words
+                            const normalizedCategory = category.split(' & ').sort().join(' & ');
+                            const normalizedFilter = filter.split(' & ').sort().join(' & ');
+                            if (normalizedCategory.includes(normalizedFilter) || normalizedFilter.includes(normalizedCategory)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

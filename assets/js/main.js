@@ -226,13 +226,22 @@ function createGameCard(gameName, gameLink, category) {
 
 // Simple function to handle any dynamic interactions
 document.addEventListener('DOMContentLoaded', function() {
-    // Add hover effects to game cards
-    const gameCards = document.querySelectorAll('.game-card');
+    // Add hover effects to game cards (excluding ad cards)
+    const gameCards = document.querySelectorAll('.game-card:not(.ad-card)');
     
     gameCards.forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function(e) {
+            // Prevent any potential event bubbling issues
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Debugging: log which card was clicked
+            console.log('Game card clicked:', this);
+            console.log('Game link:', this.getAttribute('data-game-link'));
+            
             const gameLink = this.getAttribute('data-game-link');
             if (gameLink) {
+                console.log('Navigating to:', gameLink);
                 window.location.href = gameLink;
             }
         });
@@ -252,12 +261,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const newGameCard = createGameCard('New Game', 'games/new-game.html', 'Action & Adventure');
     gameGrid.insertAdjacentHTML('beforeend', newGameCard);
     
-    // Reattach event listeners to new cards
-    const newCards = document.querySelectorAll('.game-card');
+    // Reattach event listeners to new cards (excluding ad cards)
+    const newCards = document.querySelectorAll('.game-card:not(.ad-card)');
     newCards.forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function(e) {
+            // Prevent any potential event bubbling issues
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Debugging: log which card was clicked
+            console.log('Game card clicked:', this);
+            console.log('Game link:', this.getAttribute('data-game-link'));
+            
             const gameLink = this.getAttribute('data-game-link');
             if (gameLink) {
+                console.log('Navigating to:', gameLink);
                 window.location.href = gameLink;
             }
         });
