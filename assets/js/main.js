@@ -15,16 +15,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchDropdown = document.getElementById('search-dropdown');
     const gameCards = document.querySelectorAll('.game-card');
     
+    // Check if required elements exist
+    if (!searchForm || !searchInput || !searchDropdown || !gameCards || gameCards.length === 0) {
+        console.warn('Search functionality: Some required elements are missing');
+        return;
+    }
+    
     // Store game data for quick searching
     const gameData = Array.from(gameCards).map(card => {
+        const titleEl = card.querySelector('h3');
+        const categoryEl = card.querySelector('p');
+        const imgEl = card.querySelector('img');
+        
         return {
             element: card,
-            title: card.querySelector('h3').textContent.toLowerCase(),
-            category: card.querySelector('p').textContent.toLowerCase(),
-            titleOriginal: card.querySelector('h3').textContent,
-            categoryOriginal: card.querySelector('p').textContent,
-            link: card.getAttribute('data-game-link'),
-            image: card.querySelector('img') ? card.querySelector('img').src : ''
+            title: titleEl ? titleEl.textContent.toLowerCase() : '',
+            category: categoryEl ? categoryEl.textContent.toLowerCase() : '',
+            titleOriginal: titleEl ? titleEl.textContent : '',
+            categoryOriginal: categoryEl ? categoryEl.textContent : '',
+            link: card.getAttribute('data-game-link') || '',
+            image: imgEl ? imgEl.src : ''
         };
     });
     
@@ -34,28 +44,66 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const searchTerm = searchInput.value.toLowerCase().trim();
             
-            // Hide dropdown
-            searchDropdown.classList.remove('show');
-            
             if (searchTerm === '') {
                 // Show all games if search is empty
                 gameCards.forEach(card => {
                     card.style.display = 'block';
                 });
+                // Hide dropdown
+                searchDropdown.classList.remove('show');
                 return;
             }
             
             // Filter games based on search term
+            let foundExactMatch = false;
+            const filteredGames = [];
             gameCards.forEach(card => {
-                const gameTitle = card.querySelector('h3').textContent.toLowerCase();
-                const gameCategory = card.querySelector('p').textContent.toLowerCase();
+                const titleEl = card.querySelector('h3');
+                const categoryEl = card.querySelector('p');
+                
+                const gameTitle = titleEl ? titleEl.textContent.toLowerCase() : '';
+                const gameCategory = categoryEl ? categoryEl.textContent.toLowerCase() : '';
                 
                 if (gameTitle.includes(searchTerm) || gameCategory.includes(searchTerm)) {
                     card.style.display = 'block';
+                    // Check for exact match to redirect
+                    if (gameTitle === searchTerm || gameCategory === searchTerm) {
+                        foundExactMatch = true;
+                    }
+                    filteredGames.push({
+                        element: card,
+                        title: gameTitle,
+                        category: gameCategory,
+                        titleOriginal: titleEl ? titleEl.textContent : '',
+                        categoryOriginal: categoryEl ? categoryEl.textContent : '',
+                        link: card.getAttribute('data-game-link') || '',
+                        image: card.querySelector('img') ? card.querySelector('img').src : ''
+                    });
                 } else {
                     card.style.display = 'none';
                 }
             });
+            
+            // Update dropdown with results (including "No games found" message)
+            updateSearchDropdown(filteredGames, searchTerm);
+            
+            // Show dropdown to display results or "No games found" message
+            searchDropdown.classList.add('show');
+            
+            // If there's an exact match and only one result, redirect to that game
+            if (foundExactMatch) {
+                const visibleCards = Array.from(gameCards).filter(card => card.style.display !== 'none');
+                if (visibleCards.length === 1) {
+                    const link = visibleCards[0].getAttribute('data-game-link');
+                    if (link) {
+                        // Small delay to allow user to see the results before redirecting
+                        setTimeout(() => {
+                            window.location.href = link;
+                        }, 300);
+                        return;
+                    }
+                }
+            }
         });
         
         // Handle input changes for dropdown suggestions
@@ -73,18 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Filter games for dropdown
             const filteredGames = gameData.filter(game => 
-                game.title.includes(searchTerm) || game.category.includes(searchTerm)
+                (game.title && game.title.includes(searchTerm)) || 
+                (game.category && game.category.includes(searchTerm))
             );
             
             // Update dropdown
             updateSearchDropdown(filteredGames, searchTerm);
             
-            // Show dropdown if there are results
-            if (filteredGames.length > 0) {
-                searchDropdown.classList.add('show');
-            } else {
-                searchDropdown.classList.remove('show');
-            }
+            // Always show dropdown when user is typing (even with no results)
+            searchDropdown.classList.add('show');
         });
         
         // Handle keyboard navigation
@@ -99,7 +144,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (e.key === 'Escape') {
                     searchDropdown.classList.remove('show');
                     searchInput.focus();
+                } else if (e.key === 'Enter') {
+                    // Submit the form when Enter is pressed
+                    searchForm.dispatchEvent(new Event('submit'));
                 }
+            } else if (e.key === 'Enter') {
+                // If no dropdown items, still submit the form
+                searchForm.dispatchEvent(new Event('submit'));
             }
         });
         
