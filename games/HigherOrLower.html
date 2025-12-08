@@ -4,128 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Higher or Lower - Play Mint</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <!-- AdSense script placeholder - uncomment when ready to add AdSense -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/logo.webp" alt="Play Mint Logo" class="logo-img">
-                        <span class="logo-text">Play Mint</span>
-                    </a>
+    <!-- Fullscreen ad overlay -->
+    <div id="fullscreen-ad-overlay" style="display: flex;">
+        <div class="ad-content">
+            <button id="close-ad-btn" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 18px; cursor: pointer; display: none;">×</button>
+            <h2>Advertisement</h2>
+            <div class="ad-placeholder-fullscreen">
+                <p>AdSense Fullscreen Ad Placeholder</p>
+            </div>
+            <div class="loader"></div>
+            <p>Loading your game...</p>
+        </div>
+    </div>
+    
+    <div class="container-full" style="filter: blur(5px); opacity: 0.5;" id="game-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative;">
+            <a href="../index.html" class="back-button">← Back to Home</a>
+            <div>
+                <span id="info-icon" style="cursor: pointer; font-size: 14px; color: #7f8c8d; border: 1px solid #7f8c8d; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; margin-right: 5px;">i</span>
+                <span id="escape-mode-button" class="escape-mode-text" style="color: #7f8c8d; font-style: italic; display: none; cursor: pointer;">Escape mode</span>
+                <div id="info-modal" style="display: none; position: absolute; top: 30px; right: 0; background: white; border: 1px solid #ccc; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; width: 300px; border-radius: 8px;">
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Double-tap Space to hide the game instantly.</p>
+                    <p style="margin: 0 0 10px 0; font-weight: bold;">Double-tap Space again to get back to the game.</p>
+                    <p style="margin: 0; font-style: italic; color: #7f8c8d;">Stay ahead with instant privacy.</p>
                 </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Home</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <main class="game-container">
-        <div class="game-header">
-            <h1 class="game-title">Higher or Lower</h1>
-            <div class="game-controls">
-                <button id="fullscreenBtn" class="control-btn">
-                    <i class="fas fa-expand"></i> Fullscreen
-                </button>
             </div>
         </div>
-
-        <!-- Ad Container - Top -->
+        
+        <!-- AdSense placeholder - top ad -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div class="ad-placeholder">AdSense Top Ad Placeholder</div>
         </div>
-
-        <!-- Game container - Higher or Lower embed -->
-        <div class="game-wrapper">
-            <div id="gameContainer">
-                <div><script src="https://cdn.htmlgames.com/embed.js?game=HigherOrLower&bgcolor=white"></script></div>
+        
+        <!-- Game page with vertical ads -->
+        <div class="game-page-with-ads">
+            <!-- Left vertical ad -->
+            <div class="vertical-ad-container">
+                <div class="vertical-ad-placeholder">AdSense Left Vertical Ad</div>
             </div>
             
-            <!-- Escape mode instructions -->
-            <div id="escapeMode" class="escape-mode hidden">
-                <p>Press <span class="key">ESC</span> or <span class="key">SPACE</span> to exit fullscreen</p>
-                <i class="fas fa-times-circle close-icon" id="closeEscapeMode"></i>
+            <!-- Main content -->
+            <div class="main-content">
+                <div class="game-page">
+                    <h1 class="game-title">Higher or Lower</h1>
+                    
+                    <!-- Game container - Higher or Lower embed -->
+                    <div class="game-container" id="gameContainer">
+                        <div><script src="https://cdn.htmlgames.com/embed.js?game=HigherOrLower&bgcolor=white"></script></div>
+                    </div>
+                    
+                    <!-- Fullscreen button below the game -->
+                    <button class="fullscreen-button" onclick="toggleFullscreen()">Remove Ads</button>
+                </div>
+            </div>
+            
+            <!-- Right vertical ad -->
+            <div class="vertical-ad-container">
+                <div class="vertical-ad-placeholder">AdSense Right Vertical Ad</div>
             </div>
         </div>
-
-        <!-- Ad Container - Bottom -->
+        
+        <!-- AdSense placeholder - bottom ad -->
         <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div class="ad-placeholder">AdSense Bottom Ad Placeholder</div>
         </div>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Play Mint. All rights reserved.</p>
-        </div>
-    </footer>
-
+    </div>
+    
+    <script src="../assets/js/main.js"></script>
     <script>
-        // Fullscreen functionality
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const gameContainer = document.getElementById('gameContainer');
-        const escapeMode = document.getElementById('escapeMode');
-        const closeEscapeMode = document.getElementById('closeEscapeMode');
-
-        fullscreenBtn.addEventListener('click', toggleFullscreen);
-        closeEscapeMode.addEventListener('click', hideEscapeMode);
-
+        // Fullscreen API implementation
         function toggleFullscreen() {
+            var elem = document.getElementById("gameContainer");
+            
             if (!document.fullscreenElement) {
-                gameContainer.requestFullscreen().then(() => {
-                    showEscapeMode();
-                }).catch(err => {
-                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
-                });
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
             } else {
-                document.exitFullscreen();
-                hideEscapeMode();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
             }
         }
-
-        function showEscapeMode() {
-            escapeMode.classList.remove('hidden');
+        
+        // Handle fullscreen change events
+        document.addEventListener('fullscreenchange', exitHandler);
+        document.addEventListener('webkitfullscreenchange', exitHandler);
+        document.addEventListener('mozfullscreenchange', exitHandler);
+        document.addEventListener('MSFullscreenChange', exitHandler);
+        
+        function exitHandler() {
+            if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                // Exited fullscreen
+            }
         }
-
-        function hideEscapeMode() {
-            escapeMode.classList.add('hidden');
-        }
-
-        // Close escape mode when ESC key is pressed
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                hideEscapeMode();
+    </script>
+    <script>
+        // Show fullscreen ad with loader, show close button immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a small delay to ensure DOM is fully loaded
+            setTimeout(function() {
+                const adOverlay = document.getElementById('fullscreen-ad-overlay');
+                const gameContent = document.getElementById('game-content');
+                const closeAdBtn = document.getElementById('close-ad-btn');
+                const body = document.body;
+                
+                // Debug logging
+                console.log('Fullscreen ad script loaded');
+                console.log('adOverlay:', adOverlay);
+                console.log('gameContent:', gameContent);
+                console.log('closeAdBtn:', closeAdBtn);
+                
+                // Function to hide ad and show game content
+                function hideAdAndShowGame() {
+                    if (adOverlay) {
+                        adOverlay.style.display = 'none';
+                    }
+                    if (gameContent) {
+                        gameContent.style.filter = 'none';
+                        gameContent.style.opacity = '1';
+                    }
+                    // Remove no-scroll class from body
+                    if (body) {
+                        body.classList.remove('no-scroll');
+                    }
+                }
+                
+                if (adOverlay && gameContent) {
+                    console.log('Showing fullscreen ad');
+                    // Add no-scroll class to body
+                    if (body) {
+                        body.classList.add('no-scroll');
+                    }
+                    
+                    // Show close button immediately
+                    if (closeAdBtn) {
+                        closeAdBtn.style.display = 'block';
+                    }
+                    
+                    // Set up close button event listener
+                    if (closeAdBtn) {
+                        closeAdBtn.addEventListener('click', hideAdAndShowGame);
+                    }
+                } else {
+                    console.log('Fallback: show game content immediately if there is an issue');
+                    // Fallback: show game content immediately if there's an issue
+                    if (gameContent) {
+                        gameContent.style.filter = 'none';
+                        gameContent.style.opacity = '1';
+                    }
+                    // Remove no-scroll class from body
+                    if (body) {
+                        body.classList.remove('no-scroll');
+                    }
+                }
+            }, 100); // 100ms delay
+        });
+        
+        // Redirect to learning page when spacebar is double-clicked
+        let lastSpacePress = 0;
+        document.addEventListener('keydown', function(event) {
+            // Check if spacebar was pressed
+            if (event.code === 'Space') {
+                event.preventDefault();
+                event.stopPropagation(); // Prevent event from bubbling to other listeners
+                const now = Date.now();
+                // Check if this is a double-click (within 300ms)
+                if (now - lastSpacePress < 300) {
+                    window.location.href = '../secret-learning.html';
+                }
+                lastSpacePress = now;
             }
         });
-
-        // Toggle fullscreen when spacebar is pressed
-        document.addEventListener('keydown', (event) => {
-            if (event.code === 'Space' && event.target === document.body) {
-                event.preventDefault();
-                toggleFullscreen();
+        
+        // Handle info icon click to show/hide modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const infoIcon = document.getElementById('info-icon');
+            const escapeModeButton = document.getElementById('escape-mode-button');
+            const infoModal = document.getElementById('info-modal');
+            
+            if ((infoIcon || escapeModeButton) && infoModal) {
+                // Function to toggle modal visibility
+                function toggleModal() {
+                    if (infoModal.style.display === 'none' || infoModal.style.display === '') {
+                        infoModal.style.display = 'block';
+                    } else {
+                        infoModal.style.display = 'none';
+                    }
+                }
+                
+                // Add event listeners to both elements
+                if (infoIcon) {
+                    infoIcon.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleModal();
+                    });
+                }
+                
+                if (escapeModeButton) {
+                    escapeModeButton.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleModal();
+                    });
+                }
+                
+                // Close modal when clicking elsewhere
+                document.addEventListener('click', function() {
+                    infoModal.style.display = 'none';
+                });
+                
+                // Prevent modal from closing when clicking inside it
+                infoModal.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
             }
         });
     </script>
