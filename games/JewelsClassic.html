@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewels Classic - Play Mint</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="../index.html">
+                        <img src="../assets/images/logo.webp" alt="Play Mint Logo" class="logo-img">
+                        <span class="logo-text">Play Mint</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">Jewels Classic</h1>
+            <div class="game-controls">
+                <button id="fullscreenBtn" class="control-btn">
+                    <i class="fas fa-expand"></i> Fullscreen
+                </button>
+            </div>
+        </div>
+
+        <!-- Ad Container - Top -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Game container - Jewels Classic embed -->
+        <div class="game-wrapper">
+            <div id="gameContainer">
+                <div><script src="https://cdn.htmlgames.com/embed.js?game=JewelsClassic&bgcolor=white"></script></div>
+            </div>
+            
+            <!-- Escape mode instructions -->
+            <div id="escapeMode" class="escape-mode hidden">
+                <p>Press <span class="key">ESC</span> or <span class="key">SPACE</span> to exit fullscreen</p>
+                <i class="fas fa-times-circle close-icon" id="closeEscapeMode"></i>
+            </div>
+        </div>
+
+        <!-- Ad Container - Bottom -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Play Mint. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fullscreen functionality
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const gameContainer = document.getElementById('gameContainer');
+        const escapeMode = document.getElementById('escapeMode');
+        const closeEscapeMode = document.getElementById('closeEscapeMode');
+
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        closeEscapeMode.addEventListener('click', hideEscapeMode);
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                gameContainer.requestFullscreen().then(() => {
+                    showEscapeMode();
+                }).catch(err => {
+                    console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+                hideEscapeMode();
+            }
+        }
+
+        function showEscapeMode() {
+            escapeMode.classList.remove('hidden');
+        }
+
+        function hideEscapeMode() {
+            escapeMode.classList.add('hidden');
+        }
+
+        // Close escape mode when ESC key is pressed
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                hideEscapeMode();
+            }
+        });
+
+        // Toggle fullscreen when spacebar is pressed
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space' && event.target === document.body) {
+                event.preventDefault();
+                toggleFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>

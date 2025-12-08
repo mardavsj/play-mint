@@ -10,7 +10,7 @@
             margin: 15px 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 3px;
         }
         
         .filter-btn {
@@ -18,7 +18,7 @@
             border: 1px solid #dee2e6;
             color: #495057;
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 14px;
             transition: all 0.2s ease-in-out;
@@ -52,7 +52,7 @@
                         <span style="font-size: 12px; color: white; border: 1px solid white; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center;">i</span>
                         <span>Escape Mode</span>
                     </button>
-                    <div id="total-games-count" style="background-color: #3498db; color: white; display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Total Games: 32</div>
+                    <div id="total-games-count" style="background-color: #3498db; color: white; display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
                 </div>
                 <!-- Escape mode modal -->
                 <div id="escape-mode-modal" style="display: none; position: absolute; top: 60px; right: 300px; background: white; border: 1px solid #ccc; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; width: 300px; border-radius: 8px;">
@@ -87,23 +87,9 @@
                 <button class="filter-btn" data-filter="Card & Strategy">Card</button>
                 <button class="filter-btn" data-filter="Strategy & Board">Board</button>
                 <button class="filter-btn" data-filter="Match 3">Match 3</button>
+                <button class="filter-btn" data-filter="Sports & Action">Sports</button>
                 <button class="filter-btn" data-filter="Tile & Puzzle">Tile</button>
-                <button class="filter-btn" data-filter="Word & Puzzle">Word</button>
-                <button class="filter-btn" data-filter="Physics & Action">Physics</button>
-                <button class="filter-btn" data-filter="Platform & Adventure">Platform</button>
-                <button class="filter-btn" data-filter="Puzzle & Art">Art</button>
-                <button class="filter-btn" data-filter="Match 3 & Action">Action Match</button>
-                <button class="filter-btn" data-filter="Word & Board">Word Board</button>
-                <button class="filter-btn" data-filter="Strategy & Action">Strategy Action</button>
-                <button class="filter-btn" data-filter="Card & Family">Family</button>
-                <button class="filter-btn" data-filter="Mobile & Arcade">Mobile</button>
-                <button class="filter-btn" data-filter="Physics & Puzzle">Physics Puzzle</button>
-                <button class="filter-btn" data-filter="Racing & Sports">Racing</button>
-                <button class="filter-btn" data-filter="Action & FPS">FPS</button>
-                <button class="filter-btn" data-filter="RPG & Puzzle">RPG</button>
-                <button class="filter-btn" data-filter="Dice & Family">Dice</button>
-                <button class="filter-btn" data-filter="Action & Arcade">Action Arcade</button>
-                <button class="filter-btn" data-filter="Card & Puzzle">Card Puzzle</button>
+                <button class="filter-btn" data-filter="others">Others</button>
             </div>
         </div>
         <div class="game-grid">
@@ -163,16 +149,23 @@
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/Solitaire.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjdjY2U4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNvbGl0YWlyZTwvdGV4dD48L3N2Zz4=" alt="Solitaire">
+            <div class="game-card" data-game-link="games/FlowerSolitaire.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/flower-solitaire/800x450/flowersolitaire800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/flower-solitaire/500x300/flowersolitaire500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/flower-solitaire/300x200/flowersolitaire-300200.webp">
+                    <img src="assets/images/games/flower-solitaire/200x200/flowersolitaire-200.webp" alt="Flower Solitaire">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Solitaire</h3>
+                    <h3>Flower Solitaire</h3>
                     <p>Card & Strategy</p>
                 </div>
             </div>
             
             <div class="game-card" data-game-link="games/Chess.html">
                 <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/chess/800x450/chess800x450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/chess/500x300/chess500x300.webp">
                     <source media="(min-width: 768px)" srcset="assets/images/games/chess/300x200/chess300200.webp">
                     <img src="assets/images/games/chess/200x200/chess200200.webp" alt="Chess">
                 </picture>
@@ -228,208 +221,231 @@
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/Pacman.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZjODA4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlBhY21hbjwvdGV4dD48L3N2Zz4=" alt="Pacman">
+            <div class="game-card" data-game-link="games/ClassicPac.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/classic-pac/800x450/classicpac800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/classic-pac/500x300/classicpac500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/classic-pac/300x200/classicpac300200.webp">
+                    <img src="assets/images/games/classic-pac/200x200/classicpac200.webp" alt="Classic Pac">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Pacman</h3>
+                    <h3>Classic Pac</h3>
                     <p>Classic & Arcade</p>
                 </div>
             </div>
             
             <div class="game-card" data-game-link="games/Checkers.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjYjcwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNoZWNrZXJzPC90ZXh0Pjwvc3ZnPg==" alt="Checkers">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="assets/images/games/checkers/300x200/checkers300.webp">
+                    <img src="assets/images/games/checkers/300x200/checkers300.webp" alt="Checkers">
+                </picture>
                 <div class="game-card-content">
                     <h3>Checkers</h3>
                     <p>Board & Strategy</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/JigsawPuzzle.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBhZmYzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkppc2F3IFB1enpsZTwvdGV4dD48L3N2Zz4=" alt="Jigsaw Puzzle">
-                <div class="game-card-content">
-                    <h3>Jigsaw Puzzle</h3>
-                    <p>Puzzle & Art</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Bejeweled.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJlamV3ZWxlZDwvdGV4dD48L3N2Zz4=" alt="Bejeweled">
-                <div class="game-card-content">
-                    <h3>Bejeweled</h3>
-                    <p>Match 3 & Puzzle</p>
-                </div>
-            </div>
-            
             <div class="game-card" data-game-link="games/Freecell.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBhZGY4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkZyZWVjZWxsPC90ZXh0Pjwvc3ZnPg==" alt="Freecell">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/freecell/800x450/free-cell-800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/freecell/500x300/free-cell-500.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/freecell/300x200/free-cell-300.webp">
+                    <img src="assets/images/games/freecell/200x200/free-cell-200.webp" alt="Freecell">
+                </picture>
                 <div class="game-card-content">
                     <h3>Freecell</h3>
                     <p>Card & Strategy</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/AngryBirds.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY1NzAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkFuZ3J5IEJpcmRzPC90ZXh0Pjwvc3ZnPg==" alt="Angry Birds">
+            <div class="game-card" data-game-link="games/EasterZuma.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/easter-zuma/800x450/easterzuma800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/easter-zuma/500x300/easterzuma500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/easter-zuma/300x200/easterzuma300200.webp">
+                    <img src="assets/images/games/easter-zuma/200x200/easterzuma200.webp" alt="Easter Zuma">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Angry Birds</h3>
-                    <p>Physics & Action</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/CandyCrush.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZhYTAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNhbmR5IENydXNoPC90ZXh0Pjwvc3ZnPg==" alt="Candy Crush">
-                <div class="game-card-content">
-                    <h3>Candy Crush</h3>
-                    <p>Match 3 & Puzzle</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Mario.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMDAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPk1hcmlvPC90ZXh0Pjwvc3ZnPg==" alt="Mario">
-                <div class="game-card-content">
-                    <h3>Mario</h3>
-                    <p>Platform & Adventure</p>
-                </div>
-            </div>
-            
-            <!-- Ad Card - After Mario -->
-            <div class="game-card ad-card">
-                <div class="ad-slot">
-                    <!-- AdSense ad will load here -->
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Zuma.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA5ZjAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlp1bWE8L3RleHQ+PC9zdmc+" alt="Zuma">
-                <div class="game-card-content">
-                    <h3>Zuma</h3>
+                    <h3>Easter Zuma</h3>
                     <p>Match 3 & Action</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/Scrabble.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA1ZmFmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNjcmFiYmxlPC90ZXh0Pjwvc3ZnPg==" alt="Scrabble">
-                <div class="game-card-content">
-                    <h3>Scrabble</h3>
-                    <p>Word & Board</p>
-                </div>
-            </div>
-            
             <div class="game-card" data-game-link="games/SpiderSolitaire.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjYTkwMGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNwaWRlciBTb2xpdGFpcmU8L3RleHQ+PC9zdmc+" alt="Spider Solitaire">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/spider-solitaire/800x450/spidersolitaire800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/spider-solitaire/500x300/spidersolitaire500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/spider-solitaire/300x200/spidersolitaire300200.webp">
+                    <img src="assets/images/games/spider-solitaire/200x200/spidersolitaire200.webp" alt="Spider Solitaire">
+                </picture>
                 <div class="game-card-content">
                     <h3>Spider Solitaire</h3>
                     <p>Card & Strategy</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/TowerDefense.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA4MDgwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlRvd2VyIERlZmVuc2U8L3RleHQ+PC9zdmc+" alt="Tower Defense">
+            <div class="game-card" data-game-link="games/LuxorTriPeaks.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/luxor-tri-peaks/800x450/luxortripeaks800.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/luxor-tri-peaks/500x300/luxortripeaks500.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/luxor-tri-peaks/300x200/luxortripeaks300.webp">
+                    <img src="assets/images/games/luxor-tri-peaks/200x200/luxortripeaks200.webp" alt="Luxor Tri Peaks">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Tower Defense</h3>
-                    <p>Strategy & Action</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Uno.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwMGQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlVubyw8L3RleHQ+PC9zdmc+" alt="Uno">
-                <div class="game-card-content">
-                    <h3>Uno</h3>
-                    <p>Card & Family</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/DoodleJump.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOGJkZGI3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkRvb2RsZSBKdW1wPC90ZXh0Pjwvc3ZnPg==" alt="Doodle Jump">
-                <div class="game-card-content">
-                    <h3>Doodle Jump</h3>
-                    <p>Mobile & Arcade</p>
-                </div>
-            </div>
-            
-            <!-- Ad Card - After Doodle Jump -->
-            <div class="game-card ad-card">
-                <div class="ad-slot">
-                    <!-- AdSense ad will load here -->
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/CutTheRope.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiYzAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkN1dCBUaGUgUm9wZTwvdGV4dD48L3N2Zz4=" alt="Cut The Rope">
-                <div class="game-card-content">
-                    <h3>Cut The Rope</h3>
-                    <p>Physics & Puzzle</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/FruitNinja.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2NmIzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkZydWl0IE5pbmphPC90ZXh0Pjwvc3ZnPg==" alt="Fruit Ninja">
-                <div class="game-card-content">
-                    <h3>Fruit Ninja</h3>
-                    <p>Action & Arcade</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Racing.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NGJmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlJhY2luZzwvdGV4dD48L3N2Zz4=" alt="Racing">
-                <div class="game-card-content">
-                    <h3>Racing</h3>
-                    <p>Racing & Sports</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Shooting.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZjQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlNob290aW5nPC90ZXh0Pjwvc3ZnPg==" alt="Shooting">
-                <div class="game-card-content">
-                    <h3>Shooting</h3>
-                    <p>Action & FPS</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/PuzzleQuest.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjODBkNGZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlB1enpsZSBRdWVzdDwvdGV4dD48L3N2Zz4=" alt="Puzzle Quest">
-                <div class="game-card-content">
-                    <h3>Puzzle Quest</h3>
-                    <p>RPG & Puzzle</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/TriPeaks.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZGY0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPlRyaSBQZWFrczwvdGV4dD48L3N2Zz4=" alt="Tri Peaks">
-                <div class="game-card-content">
-                    <h3>Tri Peaks</h3>
+                    <h3>Luxor Tri Peaks</h3>
                     <p>Card & Puzzle</p>
                 </div>
             </div>
             
-            <div class="game-card" data-game-link="games/Yahtzee.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NGQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPllhaHR6ZWU8L3RleHQ+PC9zdmc+" alt="Yahtzee">
+            <div class="game-card" data-game-link="games/Battleships.html">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="assets/images/games/battleships/300x200/battleships300.webp">
+                    <img src="assets/images/games/battleships/300x200/battleships300.webp" alt="Battleships">
+                </picture>
                 <div class="game-card-content">
-                    <h3>Yahtzee</h3>
-                    <p>Dice & Family</p>
-                </div>
-            </div>
-            
-            <div class="game-card" data-game-link="games/Battleship.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY4ZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkJhdHRsZXNoaXA8L3RleHQ+PC9zdmc+" alt="Battleship">
-                <div class="game-card-content">
-                    <h3>Battleship</h3>
+                    <h3>Battleships</h3>
                     <p>Strategy & Board</p>
                 </div>
             </div>
             
             <div class="game-card" data-game-link="games/ConnectFour.html">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZiY2JjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOC43NSIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkNvbm5lY3QgRm91cjwvdGV4dD48L3N2Zz4=" alt="Connect Four">
+                <picture>
+                    <source media="(min-width: 768px)" srcset="assets/images/games/connect-four/300x200/connect4300.webp">
+                    <img src="assets/images/games/connect-four/300x200/connect4300.webp" alt="Connect Four">
+                </picture>
                 <div class="game-card-content">
                     <h3>Connect Four</h3>
-                    <p>Board & Strategy</p>
+                    <p>Strategy & Board</p>
                 </div>
             </div>
             
-            <!-- Ad Card - After Connect Four -->
-            <div class="game-card ad-card">
-                <div class="ad-slot">
-                    <!-- AdSense ad will load here -->
+            <div class="game-card" data-game-link="games/ArcheryTraining.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/archery-training/800x450/acherytraining800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/archery-training/500x300/acherytraining500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/archery-training/300x200/acherytraining300200.webp">
+                    <img src="assets/images/games/archery-training/200x200/acherytraining200.webp" alt="Archery Training">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Archery Training</h3>
+                    <p>Sports & Action</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/HigherOrLower.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/higher-or-lower/800x450/higherorLower800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/higher-or-lower/500x300/higherorLower500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/higher-or-lower/300x200/higherorLower300200.webp">
+                    <img src="assets/images/games/higher-or-lower/200x200/higherorLower200.webp" alt="Higher or Lower">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Higher or Lower</h3>
+                    <p>Card & Puzzle</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/GuardianLighthouseHiddenSecrets.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/guardian-lighthouse/800x450/guardianlighthousehiddensecrets800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/guardian-lighthouse/500x300/guardianlighthousehiddensecrets500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/guardian-lighthouse/300x200/guardianlighthousehiddensecrets300200.webp">
+                    <img src="assets/images/games/guardian-lighthouse/200x200/guardianlighthousehiddensecrets200.webp" alt="Guardian Lighthouse - Hidden Secrets">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Guardian Lighthouse - Hidden Secrets</h3>
+                    <p>Hidden Object</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/JewelsClassic.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/jewels-classic/800x450/jewelsclassic800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/jewels-classic/500x300/jewelsclassic500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/jewels-classic/300x200/jewelsclassic300200.webp">
+                    <img src="assets/images/games/jewels-classic/200x200/jewelsclassic200.webp" alt="Jewels Classic">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Jewels Classic</h3>
+                    <p>Puzzle & Logic</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/CarromPool.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/carrom-pool/800x450/carrompool800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/carrom-pool/500x300/carrompool500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/carrom-pool/300x200/carrompool300200.webp">
+                    <img src="assets/images/games/carrom-pool/200x200/carrompool200.webp" alt="Carrom Pool">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Carrom Pool</h3>
+                    <p>Sports & Action</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/PragueHiddenObjects.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/prague-hidden-objects/800x450/praquehiddenobjects800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/prague-hidden-objects/500x300/praquehiddenobjects500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/prague-hidden-objects/300x200/praquehiddenobjects300200.webp">
+                    <img src="assets/images/games/prague-hidden-objects/200x200/praquehiddenobjects200.webp" alt="Prague Hidden Objects">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Prague Hidden Objects</h3>
+                    <p>Hidden Object</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/BubbleShooter.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/bubble-shooter/800x450/bubble_shooter800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/bubble-shooter/500x300/bubble_shooter500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/bubble-shooter/300x200/bubble_shooter300200.webp">
+                    <img src="assets/images/games/bubble-shooter/200x200/bubble_shooter200.webp" alt="Bubble Shooter">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Bubble Shooter</h3>
+                    <p>Match 3</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/BalloonMaze.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/balloon-maze/800x450/balloonmaze800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/balloon-maze/500x300/balloonmaze500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/balloon-maze/300x200/balloonmaze300200.webp">
+                    <img src="assets/images/games/balloon-maze/200x200/balloonmaze200.webp" alt="Balloon Maze">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Balloon Maze</h3>
+                    <p>Puzzle & Logic</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/MazeRoll.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/maze-roll/800x450/mazeroll800450.jpg">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/maze-roll/500x300/mazeroll500300.jpg">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/maze-roll/300x200/mazeroll300200.jpg">
+                    <img src="assets/images/games/maze-roll/200x200/mazeroll200.jpg" alt="Maze Roll">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Maze Roll</h3>
+                    <p>Puzzle & Logic</p>
+                </div>
+            </div>
+            
+            <div class="game-card" data-game-link="games/SnakeDash.html">
+                <picture>
+                    <source media="(min-width: 1200px)" srcset="assets/images/games/snake-dash/800x450/snakedash800450.webp">
+                    <source media="(min-width: 992px)" srcset="assets/images/games/snake-dash/500x300/snakedash500300.webp">
+                    <source media="(min-width: 768px)" srcset="assets/images/games/snake-dash/300x200/snakedash300200.webp">
+                    <img src="assets/images/games/snake-dash/200x200/snakedash200.webp" alt="Snake Dash">
+                </picture>
+                <div class="game-card-content">
+                    <h3>Snake Dash</h3>
+                    <p>Classic & Arcade</p>
                 </div>
             </div>
         </div>
@@ -522,6 +538,24 @@
                     gameCards.forEach(card => {
                         if (filter === 'all') {
                             card.style.display = 'block';
+                        } else if (filter === 'others') {
+                            // Show games that don't match any of the main categories
+                            const category = card.querySelector('p').textContent;
+                            const mainCategories = ['Action & Adventure', 'Puzzle & Logic', 'Classic & Arcade', 'Card & Strategy', 'Strategy & Board', 'Match 3', 'Sports & Action', 'Tile & Puzzle'];
+                            let matchesMainCategory = false;
+                            
+                            for (let mainCat of mainCategories) {
+                                // Normalize both category and main category for comparison
+                                const normalizedCategory = category.split(' & ').sort().join(' & ');
+                                const normalizedMainCat = mainCat.split(' & ').sort().join(' & ');
+                                
+                                if (normalizedCategory.includes(normalizedMainCat) || normalizedMainCat.includes(normalizedCategory)) {
+                                    matchesMainCategory = true;
+                                    break;
+                                }
+                            }
+                            
+                            card.style.display = matchesMainCategory ? 'none' : 'block';
                         } else {
                             const category = card.querySelector('p').textContent;
                             // Normalize the category and filter for comparison by sorting words

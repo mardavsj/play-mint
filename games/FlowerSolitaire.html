@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classic Word Search - Play Mint</title>
+    <title>Flower Solitaire - Play Mint</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- AdSense script placeholder - uncomment when ready to add AdSense -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
@@ -21,7 +21,7 @@
             <p>Loading your game...</p>
         </div>
     </div>
-    
+        
     <div class="container-full" style="filter: blur(5px); opacity: 0.5;" id="game-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative;">
             <a href="../index.html" class="back-button">← Back to Home</a>
@@ -51,19 +51,19 @@
             <!-- Main content -->
             <div class="main-content">
                 <div class="game-page">
-                    <h1 class="game-title">Classic Word Search</h1>
+                    <h1 class="game-title">Flower Solitaire</h1>
                     
-                    <!-- Game container - Classic Word Search embed -->
+                    <!-- Game container - Flower Solitaire embed -->
                     <div class="game-container" id="gameContainer">
-                        <!-- START: Game Embed Script - Classic Word Search -->
+                        <!-- START: Game Embed Script - Replace this section with actual game embed -->
                         <div>
-                            <script src="https://cdn.htmlgames.com/embed.js?game=ClassicWordSearch&bgcolor=white"></script>
+                            <script src="https://cdn.htmlgames.com/embed.js?game=FlowerSolitaire&bgcolor=white"></script>
                         </div>
                         <!-- END: Game Embed Script -->
                     </div>
                     
                     <!-- Fullscreen button below the game -->
-                    <button class="fullscreen-button" onclick="toggleFullscreen()">Remove  Ads</button>
+                    <button class="fullscreen-button" onclick="toggleFullscreen()">Remove Ads</button>
                 </div>
             </div>
             
@@ -157,44 +157,7 @@
                 lastSpacePress = now;
             }
         });
-    </script>
-    <script>
-        // Fullscreen API implementation
-        function toggleFullscreen() {
-            var elem = document.getElementById("gameContainer");
-            
-            if (!document.fullscreenElement) {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
-            }
-        }
         
-        // Handle fullscreen change events
-        document.addEventListener('fullscreenchange', exitHandler);
-        document.addEventListener('webkitfullscreenchange', exitHandler);
-        document.addEventListener('mozfullscreenchange', exitHandler);
-        document.addEventListener('MSFullscreenChange', exitHandler);
-        
-        function exitHandler() {
-            if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-                // Exited fullscreen
-            }
-        }
-    </script>
-    <script>
         // Handle info icon click to show/hide modal
         document.addEventListener('DOMContentLoaded', function() {
             const infoIcon = document.getElementById('info-icon');
@@ -237,6 +200,41 @@
                 });
             }
         });
+        
+        // Fullscreen API implementation
+        function toggleFullscreen() {
+            var elem = document.getElementById("gameContainer");
+            
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+        
+        // Handle fullscreen change events
+        document.addEventListener('fullscreenchange', exitHandler);
+        document.addEventListener('webkitfullscreenchange', exitHandler);
+        document.addEventListener('mozfullscreenchange', exitHandler);
+        document.addEventListener('MSFullscreenChange', exitHandler);
+        
+        function exitHandler() {
+            if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                // Exited fullscreen
+            }
+        }
     </script>
 </body>
 </html>

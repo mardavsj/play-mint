@@ -431,6 +431,11 @@ header {
     object-fit: cover;
 }
 
+/* Add specific styling for picture element to ensure proper display */
+.game-card picture {
+    display: block;
+}
+
 .game-card-content {
     padding: 15px;
     opacity: 0;
