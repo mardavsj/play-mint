@@ -9,6 +9,7 @@
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 <body>
+    <script>window.gameContentLoaded = true;</script>
     <!-- Fullscreen ad overlay -->
     <div id="fullscreen-ad-overlay" style="display: flex;">
         <div class="ad-content">
@@ -22,7 +23,10 @@
                      data-ad-client="ca-pub-1308401027139954"
                      data-ad-slot="1275363699"></ins>
                 <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
+                     // Only show fullscreen ad if game content exists
+                     if (typeof gameContentLoaded !== 'undefined' && gameContentLoaded) {
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                     }
                 </script>
             </div>
             <div class="loader"></div>
@@ -45,7 +49,7 @@
         </div>
         
         <!-- AdSense ad - top -->
-        <div class="ad-container">
+        <div class="ad-container" id="gameTopAd">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1308401027139954"
@@ -53,14 +57,19 @@
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+                 // Only load ad if game content exists
+                 if (typeof gameContentLoaded !== "undefined" && gameContentLoaded) {
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                 } else {
+                     document.getElementById("gameTopAd").style.display = "none";
+                 }
             </script>
         </div>
         
         <!-- Game page with vertical ads -->
         <div class="game-page-with-ads">
             <!-- Left vertical ad -->
-            <div class="vertical-ad-container">
+            <div class="vertical-ad-container" id="leftVerticalAd">
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-1308401027139954"
@@ -68,7 +77,12 @@
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
                 <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
+                     // Only load ad if game content exists
+                     if (typeof gameContentLoaded !== "undefined" && gameContentLoaded) {
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                     } else {
+                         document.getElementById("leftVerticalAd").style.display = "none";
+                     }
                 </script>
             </div>
             
@@ -92,7 +106,7 @@
             </div>
             
             <!-- Right vertical ad -->
-            <div class="vertical-ad-container">
+            <div class="vertical-ad-container" id="rightVerticalAd">
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-1308401027139954"
@@ -100,13 +114,18 @@
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
                 <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
+                     // Only load ad if game content exists
+                     if (typeof gameContentLoaded !== "undefined" && gameContentLoaded) {
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                     } else {
+                         document.getElementById("rightVerticalAd").style.display = "none";
+                     }
                 </script>
             </div>
         </div>
         
         <!-- AdSense ad - bottom -->
-        <div class="ad-container">
+        <div class="ad-container" id="gameBottomAd">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1308401027139954"
@@ -114,7 +133,12 @@
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+                 // Only load ad if game content exists
+                 if (typeof gameContentLoaded !== "undefined" && gameContentLoaded) {
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                 } else {
+                     document.getElementById("gameBottomAd").style.display = "none";
+                 }
             </script>
         </div>
     </div>
@@ -278,4 +302,6 @@
     </script>
 </body>
 </html>
+
+
 

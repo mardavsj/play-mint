@@ -76,7 +76,7 @@
     </header>
     <div class="container">
         <!-- AdSense ad - top -->
-        <div class="ad-container">
+        <div class="ad-container" id="topAdContainer">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1308401027139954"
@@ -84,7 +84,13 @@
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+                 // Only load ad if there's sufficient content
+                 if (document.querySelectorAll('.game-card:not(.ad-card)').length > 0) {
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                 } else {
+                     // Hide ad container if no content
+                     document.getElementById('topAdContainer').style.display = 'none';
+                 }
             </script>
         </div>
         
@@ -212,7 +218,7 @@
             </div>
             
             <!-- Ad Card - Before Minesweeper -->
-            <div class="game-card ad-card">
+            <div class="game-card ad-card" id="adCard1">
                 <div class="ad-slot">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1308401027139954"
                          crossorigin="anonymous"></script>
@@ -222,7 +228,13 @@
                          data-ad-client="ca-pub-1308401027139954"
                          data-ad-slot="1247443536"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                         // Only load ad if there's sufficient content
+                         if (document.querySelectorAll('.game-card:not(.ad-card)').length > 5) {
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                         } else {
+                             // Hide ad card if not enough content
+                             document.getElementById('adCard1').style.display = 'none';
+                         }
                     </script>
                 </div>
             </div>
@@ -304,7 +316,7 @@
             </div>
             
             <!-- Ad Card - After Spider Solitaire -->
-            <div class="game-card ad-card">
+            <div class="game-card ad-card" id="adCard2">
                 <div class="ad-slot">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1308401027139954"
                          crossorigin="anonymous"></script>
@@ -314,7 +326,13 @@
                          data-ad-client="ca-pub-1308401027139954"
                          data-ad-slot="1247443536"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                         // Only load ad if there's sufficient content
+                         if (document.querySelectorAll('.game-card:not(.ad-card)').length > 10) {
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                         } else {
+                             // Hide ad card if not enough content
+                             document.getElementById('adCard2').style.display = 'none';
+                         }
                     </script>
                 </div>
             </div>
@@ -381,7 +399,7 @@
             </div>
             
             <!-- Ad Card - After Higher or Lower -->
-            <div class="game-card ad-card">
+            <div class="game-card ad-card" id="adCard3">
                 <div class="ad-slot">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1308401027139954"
                          crossorigin="anonymous"></script>
@@ -391,7 +409,13 @@
                          data-ad-client="ca-pub-1308401027139954"
                          data-ad-slot="1247443536"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                         // Only load ad if there's sufficient content
+                         if (document.querySelectorAll('.game-card:not(.ad-card)').length > 15) {
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                         } else {
+                             // Hide ad card if not enough content
+                             document.getElementById('adCard3').style.display = 'none';
+                         }
                     </script>
                 </div>
             </div>
@@ -501,7 +525,7 @@
             </div>
             
             <!-- Ad Card - After Snake Dash -->
-            <div class="game-card ad-card">
+            <div class="game-card ad-card" id="adCard4">
                 <div class="ad-slot">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1308401027139954"
                          crossorigin="anonymous"></script>
@@ -511,14 +535,20 @@
                          data-ad-client="ca-pub-1308401027139954"
                          data-ad-slot="1247443536"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                         // Only load ad if there's sufficient content
+                         if (document.querySelectorAll('.game-card:not(.ad-card)').length > 20) {
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                         } else {
+                             // Hide ad card if not enough content
+                             document.getElementById('adCard4').style.display = 'none';
+                         }
                     </script>
                 </div>
             </div>
         </div>
         
         <!-- AdSense ad - bottom -->
-        <div class="ad-container">
+        <div class="ad-container" id="bottomAdContainer">
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-1308401027139954"
@@ -526,7 +556,13 @@
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+                 // Only load ad if there's sufficient content
+                 if (document.querySelectorAll('.game-card:not(.ad-card)').length > 0) {
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                 } else {
+                     // Hide ad container if no content
+                     document.getElementById('bottomAdContainer').style.display = 'none';
+                 }
             </script>
         </div>
     </div>

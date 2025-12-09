@@ -120,5 +120,14 @@
     </div>
     
     <script src="assets/js/main.js"></script>
+    <script>
+        // Only load ads if content exists
+        window.addEventListener('DOMContentLoaded', function() {
+            var contentExists = document.querySelector('.game-page') !== null;
+            if (contentExists) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+    </script>
 </body>
 </html>

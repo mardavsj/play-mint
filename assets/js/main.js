@@ -368,3 +368,12 @@ function exitHandler() {
         // Exited fullscreen
     }
 }
+
+// Initialize Ad Manager
+document.addEventListener('DOMContentLoaded', function() {
+    // Load ad manager script
+    const script = document.createElement('script');
+    script.src = 'assets/js/ad-manager.js';
+    script.async = true;
+    document.head.appendChild(script);
+});
